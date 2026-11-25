@@ -29,3 +29,31 @@ server/
 ```
 
 ## Setup
+```bash
+cd server
+npm install
+cp .env.example .env     # add your MongoDB URI and a JWT secret
+npm run seed             # admin: admin@solemate.com / admin123 + sample shoes
+npm run dev
+```
+Open http://localhost:5000
+
+## REST API
+| Method | Endpoint | Access |
+|---|---|---|
+| POST | /api/auth/register | Public |
+| POST | /api/auth/login | Public |
+| GET | /api/auth/me | Logged in |
+| GET | /api/products?q=&brand=&category=&sort=&page= | Public |
+| GET | /api/products/brands | Public |
+| GET | /api/products/:id | Public |
+| POST / PUT / DELETE | /api/products, /api/products/:id | Admin |
+| POST | /api/orders | Logged in |
+| GET | /api/orders/mine | Logged in |
+| GET | /api/orders/all | Admin |
+| PATCH | /api/orders/:id/status | Admin |
+
+## Security notes
+- Order prices are calculated on the server from the database, never trusted from the client
+- Stock is checked and reduced when an order is placed
+- All user-generated text is escaped before rendering to prevent XSS
