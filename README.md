@@ -1,5 +1,3 @@
-# My-Full-stack-Project-
-My Full stack project for submission
 # SoleMate: Shoe Shopping Website
 
 Full stack e-commerce app built with **Node.js, Express, MongoDB (Mongoose)** and a **vanilla HTML/CSS/JS** frontend.
